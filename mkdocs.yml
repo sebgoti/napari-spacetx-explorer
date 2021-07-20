@@ -1,0 +1,10 @@
+site_name: napari-spacetx-explorer
+site_description: A simple plugin for an interactive visualization of (un)decoded spots and whole-tissue images stored using the OME.ZARR format spec
+site_author: Sebastian Gonzalez-Tirado
+
+theme: readthedocs
+
+repo_url: https://github.com/sebgoti/napari-spacetx-explorer
+
+pages:
+- Home: index.md
