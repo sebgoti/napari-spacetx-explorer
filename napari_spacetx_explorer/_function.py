@@ -8,7 +8,6 @@ Replace code below according to your needs.
 """
 from typing import TYPE_CHECKING
 
-from enum import Enum
 import numpy as np
 import string
 from csv import reader
@@ -40,17 +39,13 @@ def read_spots(file_path: str,
         for row in csv_reader:
             if row[header.index('target')] == gene:
                 i += 1
-                spot_coordinates.append([row[xc], row[yc]])
+                spot_coordinates.append([float(row[xc]), float(row[yc])])
 
     layer_data = (
         np.array(spot_coordinates),
-          {
-            "face_color": "magenta",
-            "size": 10,
-            "symbol": 'ring'
+        {
+            "size": 10
             },
         "Points"
             )
-      #print(spot_coordinates[-1], i)
-      #print(f"# of detected genes: {i}")
     return layer_data
