@@ -10,6 +10,8 @@ Replace code below accordingly.  For complete documentation see:
 https://napari.org/docs/dev/plugins/for_plugin_developers.html
 """
 import numpy as np
+import os
+from ._reader_function import is_compatible, read_spots
 from napari_plugin_engine import napari_hook_implementation
 
 
@@ -28,6 +30,15 @@ def napari_get_reader(path):
         If the path is a recognized format, return a function that accepts the
         same path or list of paths, and returns a list of layer data tuples.
     """
+    #if isinstance(path, list):
+        # reader plugins may be handed single path, or a list of paths.
+        # if it is a list, it is assumed to be an image stack...
+        # so we are only going to look at the first file.
+        #path = path[0]
+
+    # if we know we cannot read the file, we immediately return None.
+    #if not path.endswith(".csv"):
+        #return None
     if isinstance(path, list):
         # reader plugins may be handed single path, or a list of paths.
         # if it is a list, it is assumed to be an image stack...
@@ -35,7 +46,7 @@ def napari_get_reader(path):
         path = path[0]
 
     # if we know we cannot read the file, we immediately return None.
-    if not path.endswith(".npy"):
+    if not is_compatible(path):
         return None
 
     # otherwise we return the *function* that can read ``path``.
@@ -65,14 +76,20 @@ def reader_function(path):
         layer_type=="image" if not provided
     """
     # handle both a string and a list of strings
-    paths = [path] if isinstance(path, str) else path
+    #paths = [path] if isinstance(path, str) else path
     # load all files into array
-    arrays = [np.load(_path) for _path in paths]
+    #arrays = [np.load(_path) for _path in paths]
     # stack arrays into single array
-    data = np.squeeze(np.stack(arrays))
+    #data = np.squeeze(np.stack(arrays))
 
     # optional kwargs for the corresponding viewer.add_* method
-    add_kwargs = {}
+    if isinstance(path, list):
+        path = path[0]
 
-    layer_type = "image"  # optional, default is "image"
-    return [(data, add_kwargs, layer_type)]
+    add_kwargs = {}  # optional kwargs for the corresponding viewer.add_* method
+
+    spots = read_spots(path)
+
+    layer_type = "points"  # optional, default is "image"
+    #return [(np.array(spot_coordinates), add_kwargs, layer_type)]
+    return [(spots, add_kwargs, layer_type)]
