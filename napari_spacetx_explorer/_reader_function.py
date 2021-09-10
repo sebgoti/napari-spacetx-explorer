@@ -16,6 +16,6 @@ def read_spots(file_path):
     csv_reader = CSVIO(file_path)
     if csv_reader.is_compatible():
         csv_reader.read()
-        return csv_reader.data
+        return csv_reader.total_data
 
     return None

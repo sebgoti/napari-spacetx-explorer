@@ -86,10 +86,24 @@ def reader_function(path):
     if isinstance(path, list):
         path = path[0]
 
-    add_kwargs = {}  # optional kwargs for the corresponding viewer.add_* method
-
-    spots = read_spots(path)
-
+    data_frame1, data_frame2 = read_spots(path)
+    #spots = data_frame[:, :2]
+    spots = data_frame1
+    print(f"Shape of dataframe is {data_frame2.shape}")
+    #properties = {'label': data_frame[:, -1]}
+    add_kwargs = {
+        'properties': {'gene': data_frame2}
+        #'face_color': 'magenta',#data_frame[:, -1]
+        #'symbol': 'ring',
+        #'text': 'hola'
+    }
     layer_type = "points"  # optional, default is "image"
+
+    layer_data = (
+        spots,
+        add_kwargs,
+        layer_type
+    )
     #return [(np.array(spot_coordinates), add_kwargs, layer_type)]
-    return [(spots, add_kwargs, layer_type)]
+    #return [(spots, add_kwargs, layer_type)]
+    return [layer_data]
