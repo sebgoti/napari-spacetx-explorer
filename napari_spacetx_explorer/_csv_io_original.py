@@ -23,4 +23,4 @@ class CSVIO:
         df = pd.read_csv(self.file_path)
         #df_gene = df[df['target'] != np.nan]
         #self.data = np.column_stack([df_gene['yc'], df_gene['xc']])
-        self.total_data = (np.column_stack([df['yc'], df['xc']]), df['target'])
+        self.data = np.column_stack([df['yc'], df['xc']])
