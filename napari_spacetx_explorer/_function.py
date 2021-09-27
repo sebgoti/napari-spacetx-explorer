@@ -50,9 +50,6 @@ def read_spots(
         [0.09019608, 0.74509804, 0.81176471, 1.]
     ]
 
-    genes_list = genes.split(',')
-    genes_dict_cmap = {g: i for i, g in enumerate(genes_list)}
-
     spots_idx = [genes_dict_cmap[g] for g in points.properties['gene'] if g in genes_list]
     # spots_idx = [genes_dict_cmap[gene] for gene in points.properties['gene']]
     # selected_points = [points.data[i] for i in range(len(points.data)) if points.properties['gene'][i] in genes_list]

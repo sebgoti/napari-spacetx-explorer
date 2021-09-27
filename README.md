@@ -6,11 +6,13 @@
 [![tests](https://github.com/sebgoti/napari-spacetx-explorer/workflows/tests/badge.svg)](https://github.com/sebgoti/napari-spacetx-explorer/actions)
 [![codecov](https://codecov.io/gh/sebgoti/napari-spacetx-explorer/branch/master/graph/badge.svg)](https://codecov.io/gh/sebgoti/napari-spacetx-explorer)
 
-A simple plugin for an interactive visualization of (un)decoded spots and whole-tissue images stored using the OME.ZARR format spec
+A simple plugin for an interactive visualization of spatial transcriptomic data.
 
 ----------------------------------
 
 This [napari] plugin was generated with [Cookiecutter] using with [@napari]'s [cookiecutter-napari-plugin] template.
+
+The plugin code was written by Sebastian Gonzalez-Tirado.
 
 <!--
 Don't miss the full getting started guide to set up your new package:
@@ -38,7 +40,7 @@ Distributed under the terms of the [BSD-3] license,
 
 ## Issues
 
-If you encounter any problems, please [file an issue] along with a detailed description.
+If you encounter any problems or would like some support, please [file an issue] along with a detailed description.
 
 [napari]: https://github.com/napari/napari
 [Cookiecutter]: https://github.com/audreyr/cookiecutter
