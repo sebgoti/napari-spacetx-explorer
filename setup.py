@@ -49,7 +49,7 @@ setup(
     ],
     entry_points={
         'napari.plugin': [
-            'napari-spacetx-explorer = napari-spacetx-explorer',
+            'napari-spacetx-explorer = napari_spacetx_explorer',
         ],
     },
 )
