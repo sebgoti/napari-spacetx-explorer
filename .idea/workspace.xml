@@ -5,7 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="50fcb860-d851-4174-9125-8a17b22ad127" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/environment.yml" beforeDir="false" afterPath="$PROJECT_DIR$/environment.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/test_and_deploy.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.napari/DESCRIPTION.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MANIFEST.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/environment.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/napari_spacetx_explorer/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/napari_spacetx_explorer/_csv_io.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/napari_spacetx_explorer/_csv_io_original.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/napari_spacetx_explorer/_dock_widget.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/napari_spacetx_explorer/_dock_widget_original.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/napari_spacetx_explorer/_function.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/napari_spacetx_explorer/_reader.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/napari_spacetx_explorer/_reader_function.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/napari_spacetx_explorer/_widget_test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.cfg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tox.ini" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
