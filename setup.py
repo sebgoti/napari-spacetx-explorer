@@ -8,7 +8,8 @@ from setuptools import setup, find_packages
 
 install_deps = ['napari',
                 'napari-plugin-engine>=0.1.4',
-                'imagecodecs']
+                'numpy',
+                'pandas']
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
@@ -23,22 +24,16 @@ setup(
     long_description=long_description,
     long_description_content_type='text/markdown',
     packages=find_packages(),
-    python_requires='>=3.6',
+    python_requires='>=3.7',
     use_scm_version=True,
     install_requires=install_deps,
     setup_requires=['setuptools_scm', 'pytest-runner'],
     tests_require=['pytest', 'pytest-qt'],
-    extras_require={
-      "docs": [
-        'sphinx>=3.0',
-        'sphinxcontrib-apidoc',
-        'sphinx_rtd_theme',
-        'sphinx-prompt',
-        'sphinx-autodoc-typehints',
-      ]
-    },
     include_package_data=True,
     classifiers=[
+        'Development Status :: 3 - Alpha', 
+        'Intended Audience :: Science/Research',
+        'Framework :: napari',
         'Programming Language :: Python',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.7',
@@ -46,7 +41,6 @@ setup(
         'Programming Language :: Python :: 3.9',
         'Operating System :: OS Independent',
         'License :: OSI Approved :: BSD License',
-        'Framework :: napari',
     ],
     entry_points={
         'napari.plugin': [
