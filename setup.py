@@ -8,7 +8,7 @@ from setuptools import setup, find_packages
 
 install_deps = ['napari',
                 'napari-plugin-engine>=0.1.4',
-                'pandas']
+                'imagecodecs']
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
