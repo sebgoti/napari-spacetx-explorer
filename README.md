@@ -23,7 +23,11 @@ https://napari.org/docs/plugins/index.html
 -->
 ## Reader hookspec
 
+<<<<<<< HEAD
 `napari-spacetx-explorer` allows the user to open and visualize CSV files that 
+=======
+napari-spacetx-explorer allows the user to open and visualize CSV files that 
+>>>>>>> 9f43412 (Edited README.MD with pictures)
 have point-data stored in a given format. The main target is for users who
 want to analyze decoded spot maps from spatial omics experiments but it can
 used as well for any other type of coordinate data where each point has assigned
@@ -42,7 +46,11 @@ This creates a new "Points" layer in napari with the selected groups displayed i
 ## Loading data in OME.ZARR format
 
 The plugin napari-ome-zarr can be used to display whole-tissue images in addition to the spot maps
+<<<<<<< HEAD
 produced with the `napari-spacetx-explorer` plugin.
+=======
+produced with the napari-spacetx-explorer plugin.
+>>>>>>> 9f43412 (Edited README.MD with pictures)
 
 ![img.png](https://github.com/sebgoti/napari-spacetx-explorer/raw/main/docs/_ome_zarr_napari_spacetx_explorer.png)
 
