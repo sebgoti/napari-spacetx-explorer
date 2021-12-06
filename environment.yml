@@ -1,4 +1,4 @@
-name: cellpose_napari
+name: napari_spacetx_explorer
 dependencies:
   - python>3.4,<3.9
   - pip
