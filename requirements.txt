@@ -1,4 +1,6 @@
-napari-plugin-engine
-napari-spacetx-explorer
-numpy
-pandas
+#napari-plugin-engine
+#napari-spacetx-explorer
+#numpy
+#pandas
+
+-e .
