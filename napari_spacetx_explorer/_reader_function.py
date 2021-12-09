@@ -19,3 +19,4 @@ def read_spots(file_path):
         return csv_reader.total_data
 
     return None
+
