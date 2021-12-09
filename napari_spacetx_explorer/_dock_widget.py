@@ -110,7 +110,7 @@ def example_magic_widget(
         {'properties': spot_properties,
          'size': size_cycle,
          'face_color': face_color},
-        'Points'
+        'points'
     )
 
     return layer_data
