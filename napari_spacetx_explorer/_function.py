@@ -38,20 +38,7 @@ def read_spots(
     """
     genes_list = genes.split(',')
     genes_dict_cmap = {g: i for i, g in enumerate(genes_list)}
-    #genes_dict_cmap = {g: i for i, g in e}
 
-    #color_cycle = [
-    #    [0.12156863, 0.46666667, 0.70588235, 1.],
-    #    [1., 0.49803922, 0.05490196, 1.],
-    #    [0.17254902, 0.62745098, 0.17254902, 1.],
-    #    [0.83921569, 0.15294118, 0.15686275, 1.],
-    #    [0.58039216, 0.40392157, 0.74117647, 1.],
-    #    [0.54901961, 0.3372549, 0.29411765, 1.],
-    #    [0.89019608, 0.46666667, 0.76078431, 1.],
-    #    [0.49803922, 0.49803922, 0.49803922, 1.],
-    #    [0.7372549, 0.74117647, 0.13333333, 1.],
-    #    [0.09019608, 0.74509804, 0.81176471, 1.]
-    #]
     color_cycle = color_s.split(',')
     size_cycle = [int(i) for i in size_s.split(',')]
 
@@ -74,9 +61,6 @@ def read_spots(
         'categorical_colormap': color_cycle
     }
 
-    #selected_points = [points.data[i] for i in range(len(points.data))
-    #                   if points.properties['gene'][i] in genes]
-
     layer_data = (
         selected_data,
         #{'face_color': 'magenta',
@@ -84,7 +68,7 @@ def read_spots(
         {'properties': spot_properties,
          'size': size_cycle,
          'face_color': face_color},
-        'Points'
+        'points'
     )
 
     return layer_data
