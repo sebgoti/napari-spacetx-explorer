@@ -14,9 +14,14 @@ from starfish.core.spots.DecodeSpots.trace_builders import build_spot_traces_exa
 
 import napari
 
-e = Experiment.from_json('/Volumes/exchange/SebastianGonzalez/Sanjana/Sample2_20220530/SpaceTx/primary/experiment.json')
+from dots_plot import *
 
-#print(e)
+ROOT = '/Volumes/exchange/SebastianGonzalez/Sanjana'
+SAMPLE = 'Sample2_20220530'
+SPOTS = 'spots.csv'
+SPOTS_PATH = os.path.join(ROOT, SAMPLE, SPOTS)
+e = Experiment.from_json(os.path.join(ROOT, SAMPLE, 'SpaceTx/primary/experiment.json'))
+
 
 # The idea is for the user to select a field of view and then to
 # show this sequence of files with the codebook information from
@@ -60,6 +65,7 @@ def view_gene_exp(
     xslice: int = 500,
     yslice: int = 500,
     thr: float = 0.025,
+    size: int = 2100
 ):
     """
     Read and display data according to a StarFISH-formatted
@@ -87,14 +93,14 @@ def view_gene_exp(
     # run blob detector with dots as reference image
     # following guideline of sigma = radius/sqrt(2) for 2D images
     # threshold is set conservatively low
-    bd = FindSpots.BlobDetector(
-        min_sigma=1,
-        max_sigma=3,
-        num_sigma=30,
-        threshold=thr,
-        is_volume=False,
-        measurement_type='mean',
-    )
+    #bd = FindSpots.BlobDetector(
+    #    min_sigma=1,
+    #    max_sigma=3,
+    #    num_sigma=30,
+    #    threshold=thr,
+    #    is_volume=False,
+    #    measurement_type='mean',
+    #)
     #spots = bd.run(image_stack=imgs, reference_image=dots)
 
     # build spot traces into intensity table
@@ -103,7 +109,10 @@ def view_gene_exp(
     #bd_x, bd_y, bd_s = get_cropped_coords(bd_table, xmin, xmax, ymin, ymax)
     round_ch_array = read_round(read_gene(e.codebook, gene))
 
+    spot_map = gene_points(SAMPLE, gene, fov, e, size)
+
     viewer = napari.Viewer()
+    viewer.grid.stride = 2
     for i in range(len(round_ch_array)):
         # Plot anchor image and selected channel:
         cropped_image: starfish.ImageStack = imgs.sel({Axes.ROUND: i,  # , ch),
@@ -114,6 +123,12 @@ def view_gene_exp(
         round_ch: np.array = cropped_image.xarray.squeeze().data
 
         viewer.add_image(round_ch, name=f'Round_{i}')
+        viewer.add_points(spot_map, symbol='ring', size=20)
+
+    dots = dots.sel({Axes.X: (0, xslice), Axes.Y: (0, yslice)}).xarray.squeeze().data
+    viewer.add_image(dots, name="Anchor dots")
+    viewer.add_points(spot_map, symbol='ring', size=20)
+    napari.run()
 
 #dots.reduce({Axes.ZPLANE}, func="max"), sel = {Axes.X: (xmin, xmax),
     #
@@ -122,5 +137,6 @@ def view_gene_exp(
 
     # Plot anchor image and selected channel:
     #viewer.add_image(imgs.reduce())
-if __name__ == "__main__":
-    view_gene_exp('ACTA2', 'fov_105', e, 1000, 1000)
+#if __name__ == "__main__":
+view_gene_exp('ACTA2', 'fov_105', e, 2100, 2100)
+
