@@ -126,7 +126,7 @@ def view_gene_exp(
         viewer.add_points(spot_map, symbol='ring', size=20)
 
     dots = dots.sel({Axes.X: (0, xslice), Axes.Y: (0, yslice)}).xarray.squeeze().data
-    viewer.add_image(dots, name="Anchor dots")
+    viewer.add_image(dots, name="Anchor dots", metadata={'edge_color': 'red'})
     viewer.add_points(spot_map, symbol='ring', size=20)
     napari.run()
 
